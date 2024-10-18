@@ -33,6 +33,9 @@
         <activity
             android:name=".activities.InformacoesActivity"
             android:exported="true" />
+        <activity
+            android:name=".activities.ConfiguracoesActivity"
+            android:exported="true"/>
 
     </application>
 

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cp3_sqlitecrud.activities.AdicionarContatoActivity
+import com.example.cp3_sqlitecrud.activities.ConfiguracoesActivity
 import com.example.cp3_sqlitecrud.activities.DetalhesContatoActivity
 import com.example.cp3_sqlitecrud.activities.InformacoesActivity
 import com.example.cp3_sqlitecrud.activities.ListagemContatosActivity
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var contatoDAO: ContatoDAO
     private lateinit var btnAddContato: Button
     private lateinit var btnInfo: Button
+    private lateinit var btnConfig: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +47,12 @@ class MainActivity : AppCompatActivity() {
         btnInfo = findViewById(R.id.btnInfo)
         btnInfo.setOnClickListener {
             val intent = Intent(this, InformacoesActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnConfig= findViewById(R.id.btnConfig)
+        btnConfig.setOnClickListener {
+            val intent= Intent(this, ConfiguracoesActivity::class.java)
             startActivity(intent)
         }
     }
