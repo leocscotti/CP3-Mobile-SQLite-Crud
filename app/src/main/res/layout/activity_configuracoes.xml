@@ -9,8 +9,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Configurações"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="80dp"/>
 
-    <!-- Aqui você pode adicionar mais configurações -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WI-FI"
+        android:textSize="24dp"
+        android:layout_marginBottom="22dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volumes"
+        android:textSize="24dp"
+        android:layout_marginBottom="22dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tela"
+        android:textSize="24dp"
+        android:layout_marginBottom="22dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Privacidade"
+        android:textSize="24dp"
+        />
+
 </LinearLayout>

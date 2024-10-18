@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var contatoDAO: ContatoDAO
     private lateinit var btnAddContato: Button
     private lateinit var btnInfo: Button
-    private lateinit var btnContatosSalvos: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,13 +47,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, InformacoesActivity::class.java)
             startActivity(intent)
         }
-
-        btnContatosSalvos= findViewById(R.id.btnContatosSalvos)
-        btnContatosSalvos.setOnClickListener{
-            val intent= Intent(this, ListagemContatosActivity::class.java)
-            startActivity(intent)
-        }
-
     }
 
     private fun abrirDetalhesContato(contato: Contato) {
