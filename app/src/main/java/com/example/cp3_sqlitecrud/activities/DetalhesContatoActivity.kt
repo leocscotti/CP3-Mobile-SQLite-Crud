@@ -27,6 +27,7 @@ class DetalhesContatoActivity : AppCompatActivity() {
 
         contatoDAO = ContatoDAO(this)
 
+        // Inicializa os campos de texto e botões
         textNome = findViewById(R.id.textNome)
         textTelefone = findViewById(R.id.textTelefone)
         textEmail = findViewById(R.id.textEmail)
@@ -35,17 +36,20 @@ class DetalhesContatoActivity : AppCompatActivity() {
         btnEditar = findViewById(R.id.btnEditar)
         btnDeletar = findViewById(R.id.btnDeletar)
 
+        // Obtém o ID do contato enviado pela MainActivity
         contatoId = intent.getLongExtra("contato_id", 0)
 
+        // Exibe os detalhes do contato
         exibirDetalhesContato()
 
+        // Configura o botão Editar
         btnEditar.setOnClickListener {
             val intent = Intent(this, AdicionarContatoActivity::class.java)
             intent.putExtra("contato_id", contatoId)
             startActivity(intent)
-            finish()
         }
 
+        // Configura o botão Deletar
         btnDeletar.setOnClickListener {
             deletarContato()
         }
@@ -59,6 +63,9 @@ class DetalhesContatoActivity : AppCompatActivity() {
             textEmail.text = contato.email
             textEndereco.text = contato.endereco
             textObservacoes.text = contato.observacoes
+        } else {
+            Toast.makeText(this, "Contato não encontrado.", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 
@@ -70,5 +77,10 @@ class DetalhesContatoActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Erro ao deletar contato.", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        exibirDetalhesContato() // Atualiza a visualização dos detalhes ao retornar para a atividade
     }
 }

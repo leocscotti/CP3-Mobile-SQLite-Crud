@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "133934860056",
+    "project_id": "cp3-mob",
+    "storage_bucket": "cp3-mob.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133934860056:android:a6ed76e4d1a7d367ea006d",
+        "android_client_info": {
+          "package_name": "com.example.cp3_sqlitecrud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXfd4v5xJ_uRKmqjaNyXwOc_kSLXfkwR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

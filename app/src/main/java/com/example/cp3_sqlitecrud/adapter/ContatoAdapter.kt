@@ -15,6 +15,9 @@ class ContatoAdapter(
 
     class ContatoViewHolder(itemView: View, private val onClick: (Contato) -> Unit) : RecyclerView.ViewHolder(itemView) {
         private val txtNome: TextView = itemView.findViewById(R.id.txtNome)
+        private val txtTelefone: TextView = itemView.findViewById(R.id.txtTelefone)
+        private val txtEmail: TextView = itemView.findViewById(R.id.txtEmail)
+        private val txtEndereco: TextView = itemView.findViewById(R.id.txtEndereco)
         private lateinit var contato: Contato
 
         init {
@@ -26,6 +29,9 @@ class ContatoAdapter(
         fun bind(contato: Contato) {
             this.contato = contato
             txtNome.text = contato.nome
+            txtTelefone.text = contato.telefone
+            txtEmail.text = contato.email
+            txtEndereco.text = contato.endereco
         }
     }
 
