@@ -28,7 +28,7 @@ class AdicionarContatoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_adicionar_contato)
 
-        // Inicializar Firebase e banco de dados SQLite
+        // Inicializar Firebase e banco de dados local (SQLite)
         firestore = FirebaseFirestore.getInstance()
         contatoDAO = ContatoDAO(this)
 
@@ -83,12 +83,16 @@ class AdicionarContatoActivity : AppCompatActivity() {
         firestore.collection("Contato")
             .add(contato)
             .addOnSuccessListener { documentReference ->
-                Toast.makeText(this, "Contato salvo com sucesso! ID: ${documentReference.id}", Toast.LENGTH_SHORT).show()
-                finish()
+                Toast.makeText(this, "Contato salvo com sucesso no Firestore! ID: ${documentReference.id}", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Erro ao salvar contato.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Erro ao salvar contato no Firestore.", Toast.LENGTH_SHORT).show()
             }
+
+        // Adicionar contato ao banco de dados local (SQLite)
+        contatoDAO.adicionarContato(contato)
+        Toast.makeText(this, "Contato salvo localmente!", Toast.LENGTH_SHORT).show()
+        finish()
     }
 
     private fun atualizarContato() {
@@ -106,12 +110,16 @@ class AdicionarContatoActivity : AppCompatActivity() {
             firestore.collection("Contato").document(id.toString())
                 .set(contato)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Contato atualizado com sucesso!", Toast.LENGTH_SHORT).show()
-                    finish()
+                    Toast.makeText(this, "Contato atualizado no Firestore!", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Erro ao atualizar contato.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Erro ao atualizar contato no Firestore.", Toast.LENGTH_SHORT).show()
                 }
+
+            // Atualizar contato no banco de dados local (SQLite)
+            contatoDAO.atualizarContato(contato)
+            Toast.makeText(this, "Contato atualizado localmente!", Toast.LENGTH_SHORT).show()
+            finish()
         } ?: run {
             Toast.makeText(this, "ID do contato inválido.", Toast.LENGTH_SHORT).show()
         }
